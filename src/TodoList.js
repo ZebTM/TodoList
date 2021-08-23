@@ -1,22 +1,33 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import TodoItem from './TodoItem';
+import axios from 'axios';
+
 
 const TodoList = () => {
-    {/*
-        Map out the array of all the Todo Items
-        Use the GetAll
-    const renderedList = () => {
-        return (
-            <VideoItem />
-        );
-    }
-    */}
-    return (
+    const baseURL = "https://localhost:5001/todos";
+    const [items, setItems] = useState(null);
 
+    useEffect(() => {
+        axios.get(baseURL).then((response) => {
+            setItems(response.data);
+        })
+    }, []);
+
+    if (!items) return null;
+    
+    const RenderedList = items.map(item => {
+        return <TodoItem item={item} key={item.id}/>
+    })
+    
+    
+    console.log(items)
+    return (
         <div>
-            Todo List 
-            <TodoItem name="TF2 Tournament" dueDate="2021-08-19T06:39:57Z"/>
+            Todo List:
+            {RenderedList}
+            
         </div>
+        
     );
 }
 

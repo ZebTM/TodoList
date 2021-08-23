@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
-
 
 
 const App = () => {
     return (
         <div className="ui container">
-            App:
-            <hr />
+            <button className="ui button"><i className="icon plus"></i></button>
+            <hr />    
             <TodoList />
         </div>
 
