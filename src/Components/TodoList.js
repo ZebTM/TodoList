@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 const TodoList = () => {
-    const baseURL = "https://localhost:5001/todos";
+    const baseURL = `https://localhost:5001/todos`
     const [items, setItems] = useState(null);
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const TodoList = () => {
             setItems(response.data);
         })
     }, []);
-
+    console.log(items)
     if (!items) return null;
     
     const RenderedList = items.map(item => {
@@ -20,7 +20,7 @@ const TodoList = () => {
     })
     
     
-    console.log(items)
+    
     return (
         <div className="ui relaxed list">
             {RenderedList}
