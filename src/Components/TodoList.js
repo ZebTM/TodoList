@@ -22,10 +22,8 @@ const TodoList = () => {
     
     console.log(items)
     return (
-        <div>
-            Todo List:
+        <div className="ui relaxed list">
             {RenderedList}
-            
         </div>
         
     );
