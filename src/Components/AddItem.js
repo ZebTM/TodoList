@@ -2,8 +2,11 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 const AddItem = () => {
+    // Sets up state and baseURL to be used
     const [item, setItem] = useState(null);
+    
     const baseURL = "https://localhost:5001/todos";
+  
 
     useEffect(() => {
         axios.get(baseURL).then((response) => {
@@ -14,7 +17,7 @@ const AddItem = () => {
     const createItem = () => {
         axios
         .post(baseURL, {
-            name: "Test",
+            name: "( ͡° ͜ʖ ͡°) ",
             dueDate: "2021-12-25T12:00Z",
             isComplete: false
         })
@@ -27,6 +30,13 @@ const AddItem = () => {
 
     return (
         <div>
+            <form>
+                <label>
+                    Name:
+                    <input type="text" value="name" />
+                </label>
+                <input type="submit" value="submit" />
+            </form>
             <h1>{item.name}</h1>
             <p>{item.dueDate}</p>
             <button onClick={createItem}>Create Item</button>
