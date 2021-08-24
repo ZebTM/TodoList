@@ -5,20 +5,18 @@ import TodoList from './Components/TodoList';
 import AddItem from './Components/AddItem';
 import DeleteItem from './Components/Delete';
 import EditItem from './Components/EditItem';
+import SingleTodoItem from './Components/SingleTodoItem';
 
 const App = () => {
-    
-    
-
-
-
     return (
-       
+        // Formating for the todo list(NAV BAR)
         <div className="ui container">
             
             <button className="ui button"><Link to="/addItem"><i className="icon plus"></i></Link></button>
-            
+            <button className="ui button"><Link to="/">Home</Link></button>
             <hr />  
+        {// Checks URL to show what components //
+        }
             <Switch>
                 <Route path ="/todos/:id/edit">
                     <EditItem />
@@ -27,7 +25,7 @@ const App = () => {
                     <DeleteItem />
                 </Route>
                 <Route path="/todos/:id">
-                    <TodoList />
+                    <SingleTodoItem />
                 </Route>
                 
                 <Route path="/todos">

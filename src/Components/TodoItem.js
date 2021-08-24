@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const TodoItem = (props) => {
+const TodoItem = ({ item }) => {
+    // On Click of a todo item 
     
     return (
         <li>
             <div className="item">  
                 <button className="ui button">Completion</button>
                 <div className="content">
-                <Link to={`/todos/${props.item.id}`}>
-                    {props.item.name}
-                    <div className="description">{props.item.dueDate}</div>
+                <Link to={`/todos/${item.id}`}>
+                    {item.name}
+                    <div className="description">{item.dueDate}</div>
                 </Link>
-                <Link to={`/todos/${props.item.id}/edit`}>
+                <Link to={`/todos/${item.id}/edit`}>
                     <button className="ui button">Edit</button>
                 </Link>
-                <Link to={`/todos/${props.item.id}/delete`}>
+                <Link to={`/todos/${item.id}/delete`}>
                     <button className="ui button">Delete</button>
                 </Link>
                 </div>
